@@ -10,8 +10,8 @@ The full model it generates is using OPLS
 ********************************************************************************************************************************************
 **Logic**
 1. Reads restart file of three-site model
-2. For the mX and oX, since the three-site model already defined the plane, rotate the bonds and creates the carbon and hydrogen atoms
-3. For pX molecules, randomly select an angle and then create the molecule
-4. calculate overlaps and optimize within the code (optional)
+2. For the mX and oX, since the three-site model already defined the plane, rotates the bonds and creates the carbon and hydrogen atoms
+3. For pX molecules, randomly selects an angle and then create the molecule
+4. calculates overlaps and optimize within the code (optional)
 5. Generates full-model restart file (text file)
 ******************************************************************************************************************************************
