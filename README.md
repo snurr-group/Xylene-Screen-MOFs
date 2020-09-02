@@ -4,8 +4,8 @@ It requires RASPA.
 The full model it generates is using OPLS
 
 **Requirement**
-1. restart file of adsorption of xylene (or isomer mixture) in a structure (text restart file)***
-2. pdb movie file of the framework, it has a general name: "Movies/System_0/Framework_final.pdb"*
+1. restart file using the three-site model of adsorption of xylene (or isomer mixture) in a structure (text restart file)
+2. pdb movie file of the framework, it has a general name: "Movies/System_0/Framework_final.pdb"
 
 **Logic**
 1. Reads restart file of three-site model
