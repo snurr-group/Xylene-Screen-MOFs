@@ -295,17 +295,23 @@ for filenumber in range(0, len(restarts_dirs)): #len(restarts_dirs)
         angle_vect_z = math.atan2(np.linalg.norm(np.cross(long_vect/(2*length_CH3_S),[0, 0, 1])),
                                   np.dot(long_vect/(2*length_CH3_S),[0, 0, 1]))
         rotated_vec = np.dot(rotation_matrix(normal_rotate,-angle_vect_z), pointtt)
-        hydro1 = np.append([a, 9], rotated_vec + mod_origin_1)
-        hydro2 = np.append([a, 10], mod_origin_1-(hydro1[2:5] - mod_origin_1))
-        hydro3 = np.append([a, 11], vec_origin - (hydro1[2:5] - vec_origin))
+        # rotate 1st, get C6 position, correspond to H10
+        hydro2 = np.append([a, 10], rotated_vec + mod_origin_1)
+        # circular rotation around methyl axis, get C2, H11
+        hydro3 = np.append([a, 11], mod_origin_1-(hydro2[2:5] - mod_origin_1))
+        # opposite of H10, get C3 and H12
         hydro4 = np.append([a, 12], vec_origin - (hydro2[2:5] - vec_origin))
-        # now, get the carbons
-        carbon1 = np.append([a, 1], (hydro1[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
-        carbon2 = np.append([a, 2], -(hydro1[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
-        carbon3 = np.append([a, 3], (hydro2[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
-        carbon4 = np.append([a, 4], -(hydro2[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
-        carbon5 = np.append([a, 5], (vec_1-vec_origin)/length_CH3_S*length_S_C+vec_origin)
-        carbon6 = np.append([a, 6], (vec_2-vec_origin)/length_CH3_S*length_S_C+vec_origin)
+        # opposite of H11, get C5 and H9
+        hydro1 = np.append([a, 9], vec_origin - (hydro3[2:5] - vec_origin))
+        # now, get the carbons, to get the index correct
+        # 1st carbon should be the one directly from 1st methyl group
+        # check the definition of pX in CastilloVlugtCalero
+        carbon1 = np.append([a, 1], (vec_1-vec_origin)/length_CH3_S*length_S_C+vec_origin)
+        carbon6 = np.append([a, 6], (hydro2[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
+        carbon3 = np.append([a, 3], -(hydro2[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
+        carbon2 = np.append([a, 2], (hydro3[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
+        carbon5 = np.append([a, 5], -(hydro3[2:5]-vec_origin)/length_S_H*length_S_C+vec_origin)
+        carbon4 = np.append([a, 4], (vec_2-vec_origin)/length_CH3_S*length_S_C+vec_origin)
         full_pos.loc[13*a+1] = carbon1
         full_pos.loc[13*a+2] = carbon2
         full_pos.loc[13*a+3] = carbon3
