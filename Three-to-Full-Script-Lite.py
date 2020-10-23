@@ -1,4 +1,3 @@
-# change in file: change from counting overlap (hard sphere) to LJ energies
 import pathlib
 
 import matplotlib.pyplot as plt
