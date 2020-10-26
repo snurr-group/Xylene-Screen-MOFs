@@ -15,3 +15,6 @@ The full model it generates is using OPLS
 4. calculates overlaps and optimize within the code (optional)
 5. Generates full-model restart file (text file)
 ******************************************************************************************************************************************
+**More**
+1. Some structures requires the removal of energy caps in RASPA. The source code is here in this repository.
+*******************************************************************************************************************************************
