@@ -17,6 +17,3 @@ The full model it generates is using OPLS
 ******************************************************************************************************************************************
 **More**
 1. Some structures requires the removal of energy caps in RASPA. The source code is here in this repository.
-*******************************************************************************************************************************************
-Added code that replaces linker of MIL-47 and MIL-53 with other linkers (cubane, carborane)... It is in the Build.py code.
-When making the linker, since I didn't do pbc on the linker cif, use a large enough box to contain the linker in the cif. 
